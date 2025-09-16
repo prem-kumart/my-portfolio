@@ -39,6 +39,9 @@ import send_icon from "./send-icon.png";
 import right_arrow_bold from "./right-arrow-bold.png";
 import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
 import user_image from "./user-image.jpg";
+import work_1 from "./work-1.png";
+import work_2 from "./work-2.png";
+import work_3 from "./work-3.png";
 
 export const assets = {
   user_image,
@@ -90,18 +93,21 @@ export const projectsData = [
     title: "Patient Management System",
     description: "",
     bgImage: "/work-1.png",
+    Image: work_1,
   },
   {
     id: 2,
     title: "Food Ordering",
     description: "",
     bgImage: "/work-2.png",
+    Image: work_2,
   },
   {
     id: 3,
     title: "PowerPoint Lyrics Generator",
     description: "",
     bgImage: "/work-3.png",
+    Image: work_3,
   },
 ];
 

@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { assets, infoList, toolsData } from "@/assets/assets";
 import Image from "next/image";
-import { ThemeContext } from "@/app/page";
+import { useTheme } from "next-themes";
+
 import { motion } from "motion/react";
 const About = () => {
-  const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
+  const { theme } = useTheme();
+  const isDarkMode = theme == "dark" ? true : false;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -71,11 +79,13 @@ const About = () => {
                 key={index}
                 className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white  hover:hover:bg-darkHover/50 "
               >
-                <Image
-                  src={isDarkMode ? iconDark : icon}
-                  alt={title}
-                  className="w-7 mt-3"
-                />
+                {mounted && (
+                  <Image
+                    src={isDarkMode ? iconDark : icon}
+                    alt={title}
+                    className="w-7 mt-3"
+                  />
+                )}
                 <h3 className="my-4 font-semibold text-gray-700 dark:text-white">
                   {title}
                 </h3>

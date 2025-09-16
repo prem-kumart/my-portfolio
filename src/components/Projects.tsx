@@ -1,12 +1,19 @@
 import { assets, projectsData } from "@/assets/assets";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ThemeContext } from "@/app/page";
+import { useTheme } from "next-themes";
 import { motion } from "motion/react";
 const Projects = () => {
-  const MotionLink = motion(Link);
-  const { isDarkMode, setIsDarkMode } = React.useContext(ThemeContext);
+  const { theme } = useTheme();
+  const isDarkMode = theme == "dark" ? true : false;
+  const MotionLink = motion.create(Link);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -86,13 +93,17 @@ const Projects = () => {
         className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover"
       >
         Show More{" "}
-        <Image
-          src={
-            isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold
-          }
-          alt="Right arrow"
-          className="w-4"
-        />
+        {mounted && (
+          <Image
+            src={
+              isDarkMode
+                ? assets.right_arrow_bold_dark
+                : assets.right_arrow_bold
+            }
+            alt="Right arrow"
+            className="w-4"
+          />
+        )}
       </MotionLink>
     </motion.div>
   );

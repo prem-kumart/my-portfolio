@@ -2,14 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { assets } from "@/assets/assets";
-import { ThemeContext } from "@/app/page";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
-  const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
+  const { setTheme, theme } = useTheme();
+  console.log(theme);
+  const isDarkMode = theme == "dark" ? true : false;
   const [isScroll, setIsScroll] = useState(false);
   const sideMenuRef = useRef<HTMLUListElement>(null);
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const openMenu = () => {
     if (sideMenuRef.current)
@@ -41,7 +49,7 @@ const Navbar = () => {
         />
       </div>
       <nav
-        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 lg:ml-10 
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50  
             ${
               isScroll ? "bg-white/50 backdrop-blur-lg shadow-sm" : ""
             } dark:bg-darkTheme dark:shadow-white/20`}
@@ -82,31 +90,41 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center gap-4">
-          <button onClick={() => setIsDarkMode((prev) => !prev)}>
-            <Image
-              src={isDarkMode ? assets.sun_icon : assets.moon_icon}
-              alt="dark mode icon"
-              className="w-6"
-            />
+          <button
+            onClick={() =>
+              setTheme((prev) => (prev == "light" ? "dark" : "light"))
+            }
+          >
+            {mounted && (
+              <Image
+                src={isDarkMode ? assets.sun_icon : assets.moon_icon}
+                alt="dark mode icon"
+                className="w-6"
+              />
+            )}
           </button>
           <Link
             href="#contact"
             className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-ovo dark:border-white/50 "
           >
             Contact
-            <Image
-              src={isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon}
-              alt="arrow icon"
-              className="w-3"
-            />
+            {mounted && (
+              <Image
+                src={isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon}
+                alt="arrow icon"
+                className="w-3"
+              />
+            )}
           </Link>
 
           <button className="block md:hidden group" onClick={openMenu}>
-            <Image
-              src={isDarkMode ? assets.menu_white : assets.menu_black}
-              alt="dark mode icon"
-              className="w-6 group-hover:translate-x-2 duration-300"
-            />
+            {mounted && (
+              <Image
+                src={isDarkMode ? assets.menu_white : assets.menu_black}
+                alt="dark mode icon"
+                className="w-6 group-hover:translate-x-2 duration-300"
+              />
+            )}
           </button>
         </div>
 
@@ -117,11 +135,13 @@ const Navbar = () => {
         gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 dark:bg-darkHover dark:text-white"
         >
           <div className="absolute top-6 right-6" onClick={closeMenu}>
-            <Image
-              src={isDarkMode ? assets.close_white : assets.close_black}
-              alt="close icon"
-              className="cursor-pointer w-5"
-            />
+            {mounted && (
+              <Image
+                src={isDarkMode ? assets.close_white : assets.close_black}
+                alt="close icon"
+                className="cursor-pointer w-5"
+              />
+            )}
           </div>
           <li>
             <Link className="font-ovo" href="#top" onClick={closeMenu}>

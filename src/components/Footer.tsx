@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { assets } from "@/assets/assets";
-import { ThemeContext } from "@/app/page";
+import { useTheme } from "next-themes";
 
 const Footer = () => {
-  const { isDarkMode, setIsDarkMode } = React.useContext(ThemeContext);
+  const { theme } = useTheme();
+  const isDarkMode = theme == "dark" ? true : false;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <div className="mt-20">
       <div className="text-center">
         <div className="w-max flex items-center gap-2 mx-auto">
-          <Image
-            src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon}
-            alt="email"
-            className="w-6"
-          />
+          {mounted && (
+            <Image
+              src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon}
+              alt="email"
+              className="w-6"
+            />
+          )}
           prem.tala95@gmail.com
         </div>
       </div>
