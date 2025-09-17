@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "motion/react";
 
 const Experience = () => {
-  // Example experience data
   const experiences = [
     {
       title: "Full Stack Developer",
@@ -13,7 +12,7 @@ const Experience = () => {
     {
       title: "Java Developer",
       company: "RK Software",
-      year: "2019 - 2022",
+      year: "2018 - 2022",
       description:
         "Assisted in full stack development and learned agile workflows.",
     },
