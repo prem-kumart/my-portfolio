@@ -39,7 +39,7 @@ const ProjectPage = ({ params }: { params: Promise<{ id: number }> }) => {
           </div>
           <div>
             <Link
-              href={projectDetails?.github}
+              href={projectDetails?.github ?? ""}
               className="w-48 px-3 py-3 border border-white rounded-full bg-black text-white flex items-center justify-center gap-2 dark:bg-transparent hover:bg-white/80 hover:text-black hover:border-black"
             >
               GitHub Link
