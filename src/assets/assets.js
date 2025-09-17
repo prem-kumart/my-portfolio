@@ -42,6 +42,8 @@ import user_image from "./user-image.jpg";
 import work_1 from "./work-1.png";
 import work_2 from "./work-2.png";
 import work_3 from "./work-3.png";
+import work_4 from "./work-4.png";
+import work_5 from "./work-5.png";
 
 export const assets = {
   user_image,
@@ -91,23 +93,70 @@ export const projectsData = [
   {
     id: 1,
     title: "Patient Management System",
-    description: "",
+    description:
+      "Built a production-ready Patient Management microservices system using Java and Spring Boot, with event-driven communication (Kafka), gRPC, containerized deployments, and AWS infrastructure as code. The project demonstrates real enterprise patterns: API gateway, authentication service, observability (Prometheus/Grafana), resilience, caching, and end-to-end deployment automation.",
     bgImage: "/work-1.png",
-    Image: work_1,
+    image: work_1,
+    tools: [
+      "Java",
+      "Spring Boot",
+      "Spring Cloud Gateway",
+      "gRPC / Protobuf",
+      "Apache Kafka",
+      "Docker",
+      "Redis",
+      "Resilience4j",
+      "Prometheus",
+      "Grafana",
+      "JUnit / RestAssured",
+      "Maven/Gradle",
+    ],
+    github: "https://github.com",
   },
   {
     id: 2,
     title: "Food Ordering",
-    description: "",
+    description:
+      "Developed a full-stack food ordering application using React.js, Node.js, Express, and MongoDB with Auth0 authentication. Implemented restaurant management, search with filters, cart and checkout system integrated with Stripe, and order tracking for customers and restaurants. Deployed both backend and frontend to Render, ensuring a responsive, secure, and scalable solution.",
     bgImage: "/work-2.png",
-    Image: work_2,
+    image: work_2,
+    tools: ["NodeJS", "React JS", "MongoDB", "AuthO"],
+    github: "https://github.com",
   },
   {
     id: 3,
     title: "PowerPoint Lyrics Generator",
-    description: "",
+    description:
+      "No making each slide, Just copy and generate your ppt for your church in one click!",
     bgImage: "/work-3.png",
-    Image: work_3,
+    image: work_3,
+    tools: ["React JS", "Shadcn"],
+    github: "https://github.com/prem-kumart/ppt-generator",
+  },
+  {
+    id: 4,
+    title: "Quiz App",
+    description: "Simple Quiz App. Just upload your json file.",
+    bgImage: "/work-4.png",
+    image: work_4,
+    tools: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/prem-kumart/Quiz-App-c14",
+  },
+  {
+    id: 5,
+    title: "REST Countries ",
+    description:
+      "A React-based web application that fetches and displays country data using the REST Countries API. The app allows users to explore detailed information about countries worldwide, including population, region, capital, languages, and currencies. It also features a search, filter, and dark mode toggle for a smooth user experience.",
+    bgImage: "/work-5.png",
+    image: work_5,
+    tools: [
+      "React.js",
+      "React Router",
+      "Tailwind CSS",
+      "REST Countries API",
+      "Context API / Redux",
+    ],
+    github: "https://github.com/prem-kumart/ppt-generator",
   },
 ];
 

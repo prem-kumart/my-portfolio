@@ -54,7 +54,9 @@ const Navbar = () => {
               isScroll ? "bg-white/50 backdrop-blur-lg shadow-sm" : ""
             } dark:bg-darkTheme dark:shadow-white/20`}
       >
-        <h1 className="font-bold text-2xl">Prem Kumar </h1>
+        <Link href="/">
+          <h1 className="font-bold text-2xl">Prem Kumar </h1>
+        </Link>
         <ul
           className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
             isScroll
@@ -63,27 +65,27 @@ const Navbar = () => {
           }`}
         >
           <li>
-            <Link className="font-ovo" href="#top">
+            <Link className="font-ovo" href="/">
               Home
             </Link>
           </li>
           <li>
-            <Link className="font-ovo" href="#about">
+            <Link className="font-ovo" href="/#about">
               About Me
             </Link>
           </li>
-          {/* <li>
-            <Link className="font-ovo" href="#services">
-              Services
-            </Link>
-          </li> */}
           <li>
-            <Link className="font-ovo" href="#projects">
-              My Work
+            <Link className="font-ovo" href="/#experience">
+              Work
             </Link>
           </li>
           <li>
-            <Link className="font-ovo" href="#contact">
+            <Link className="font-ovo" href="/#projects">
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link className="font-ovo" href="/#contact">
               Contact Me
             </Link>
           </li>
@@ -149,22 +151,22 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link className="font-ovo" href="#about" onClick={closeMenu}>
+            <Link className="font-ovo" href="/#about" onClick={closeMenu}>
               About Me
             </Link>
           </li>
           <li>
-            <Link className="font-ovo" href="#services" onClick={closeMenu}>
-              Services
+            <Link className="font-ovo" href="/#experience" onClick={closeMenu}>
+              work
             </Link>
           </li>
           <li>
-            <Link className="font-ovo" href="#projects" onClick={closeMenu}>
+            <Link className="font-ovo" href="/#projects" onClick={closeMenu}>
               My Work
             </Link>
           </li>
           <li>
-            <Link className="font-ovo" href="#contact" onClick={closeMenu}>
+            <Link className="font-ovo" href="/#contact" onClick={closeMenu}>
               Contact Me
             </Link>
           </li>

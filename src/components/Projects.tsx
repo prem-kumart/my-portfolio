@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { motion } from "motion/react";
+import ProjectCard from "./ProjectCard";
 const Projects = () => {
   const { theme } = useTheme();
   const isDarkMode = theme == "dark" ? true : false;
@@ -45,8 +46,7 @@ const Projects = () => {
         className="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo"
       >
         Here are some of my recent projects that showcase my skills and
-        expertise in full-stack development. Each project is a testament to my
-        commitment to delivering high-quality solutions that meet client needs.
+        expertise in full-stack development.
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}
@@ -54,42 +54,15 @@ const Projects = () => {
         transition={{ duration: 0.9, delay: 0.6 }}
         className="grid grid-cols-(--auto) my-10 gap-5 dark:text-black"
       >
-        {projectsData.map((project, index) => (
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            key={index}
-            className="aspect-square rounded-lg relative curosr-pointer group"
-            style={{
-              background: `url(${project.bgImage}) center/cover no-repeat`,
-            }}
-          >
-            <Link href={`projects/${project.id}`}>
-              <div
-                className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between
-            duration-500 group-hover:bottom-7"
-              >
-                <div>
-                  <h2 className="font-semibold text-sm">{project.title}</h2>
-                  <p className="text-sm text-gray-700">{project.description}</p>
-                </div>
-                <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                  <Image
-                    src={assets.send_icon}
-                    alt="send icon"
-                    className="w-5"
-                  />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
+        {projectsData.slice(0, 3).map((project, index) => (
+          <ProjectCard key={index} project={project} />
         ))}
       </motion.div>
       <MotionLink
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.9, delay: 1.1 }}
-        href=""
+        href="/projects"
         className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover"
       >
         Show More{" "}
