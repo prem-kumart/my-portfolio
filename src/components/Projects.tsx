@@ -54,7 +54,7 @@ const Projects = () => {
         transition={{ duration: 0.9, delay: 0.6 }}
         className="grid grid-cols-(--auto) my-10 gap-5 dark:text-black"
       >
-        {projectsData.slice(0, 3).map((project, index) => (
+        {projectsData.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
       </motion.div>
