@@ -4,14 +4,20 @@ import { motion } from "motion/react";
 const Experience = () => {
   const experiences = [
     {
-      title: "Full Stack Developer",
-      company: "BK Solutions",
-      year: "2023 - Present",
-      description: "Building modern web applications with React and Next.js.",
+      title: "Software Developer",
+      company: "ItVorks Inc",
+      year: "Jul 2024 - Present",
+      description: "Building  web applications with React and Spring Boot",
+    },
+    {
+      title: "Software Developer",
+      company: "MetaPicks LLC",
+      year: "Aug 2023 - Jun 2024",
+      description: "Built  web applications with React and Spring Boot",
     },
     {
       title: "Java Developer",
-      company: "RK Software",
+      company: "RK Software Solutions",
       year: "2018 - 2022",
       description:
         "Assisted in full stack development and learned agile workflows.",
