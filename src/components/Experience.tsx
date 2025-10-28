@@ -15,13 +15,6 @@ const Experience = () => {
       year: "Aug 2023 - Jun 2024",
       description: "Built  web applications with React and Spring Boot",
     },
-    {
-      title: "Java Developer",
-      company: "RK Software Solutions",
-      year: "2018 - 2022",
-      description:
-        "Assisted in full stack development and learned agile workflows.",
-    },
   ];
 
   return (
