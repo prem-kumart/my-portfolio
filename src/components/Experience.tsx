@@ -13,7 +13,7 @@ const Experience = () => {
       title: "Software Developer",
       company: "MetaPicks LLC",
       year: "Aug 2023 - Jun 2024",
-      description: "Built  web applications with React and Spring Boot",
+      description: "Built  web applications with React and Node.js",
     },
   ];
 
